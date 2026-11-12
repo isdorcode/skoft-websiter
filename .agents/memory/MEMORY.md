@@ -1,0 +1,1 @@
+- [СКОФТ product scope](skoft-product-scope.md) — educational seating solutions; keep unconfirmed product and business details as placeholders.

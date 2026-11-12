@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "СКОФТ — образовательные решения"
+description = "Премиальный сайт решений для образовательной мебели: каталог мягких накладок, информация о бренде и форма запроса для организаций."
+version = "1.0.0"
+id = "artifacts/skoft-website"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23845
+
+[services.development]
+run = "pnpm --filter @workspace/skoft-website run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/skoft-website", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/skoft-website/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23845"
+BASE_PATH = "/"
